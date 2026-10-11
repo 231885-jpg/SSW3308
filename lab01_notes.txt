@@ -1,0 +1,9 @@
+1. Browser used:
+Google Chrome (macOS)
+
+2. HTML error corrected:
+Observed broken image error caused by incorrect relative path during testing; corrected by verifying directory structure and setting exact relative path.
+
+3. Difference between HTML Tag and HTML Element:
+- HTML Tag: The syntax marker enclosed in angle brackets used to denote markup, such as an opening tag <p> or closing tag </p>.
+- HTML Element: The complete unit of content from the opening tag through all child content to the closing tag, for example: <p>Welcome to Campus Events Portal</p>. An empty element like <img> consists of a single tag and attributes.
