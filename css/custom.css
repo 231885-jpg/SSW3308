@@ -1,0 +1,40 @@
+/* Lab 2 custom styles - loaded after Bootstrap (under 40 lines, no !important) */
+
+/* Brand colours */
+:root {
+    --brand: #087f8c;
+    --brand-dark: #142f46;
+}
+
+.site-navbar {
+    background-color: var(--brand-dark);
+}
+
+h1, h2 {
+    color: var(--brand-dark);
+}
+
+/* Let a long brand name wrap at 200% zoom instead of causing horizontal scrolling */
+.navbar-brand {
+    white-space: normal;
+}
+
+/* Visible keyboard focus for links, buttons and form controls */
+a:focus-visible,
+.btn:focus-visible,
+.navbar-toggler:focus-visible,
+.form-control:focus,
+.form-select:focus {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
+}
+
+/* Leave space above a section when jumping from the navbar */
+main section {
+    scroll-margin-top: 1rem;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
