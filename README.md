@@ -47,6 +47,11 @@ lab01-html/
 | 8 | Submit valid data (success case) | Green borders and "Thank you!" message shown | Passed: "Thank you! Your interest has been recorded." shown |
 
 ## Reflection
-1. Hardest requirement to verify:
-2. Most important failure test and fix:
-3. What must change before real users and personal data:
+1. **Which requirement was hardest to verify, and what evidence now proves it works?**
+   The 200% zoom test was the hardest, because at 200% zoom a 360px-wide screen only has 180 CSS pixels for the layout, and an overflow is easy to miss by eye. I checked each width (360, 768 and 1280px) at 200% and compared the page width with the viewport width. The three screenshots in `evidence/responsive/` and test results 1 to 3 above show that the page no longer scrolls sideways.
+
+2. **Which failure or security test exposed the most important defect, and how was it corrected?**
+   The 360px / 200% zoom test failed at first: Bootstrap's `.navbar-brand` uses `white-space: nowrap`, so the long name "Campus Events Portal" pushed the page wider than the screen and caused horizontal scrolling. I fixed it with one rule in `css/custom.css` (`.navbar-brand { white-space: normal; }`) so the name wraps onto two lines. The retest passed. The empty-form test also confirmed that the validation messages appear and the form does not submit.
+
+3. **What would need to change before this feature could handle real users and personal data?**
+   The form currently only checks input in the browser and does not save anything. Before real users, it needs server-side validation (Laravel in Lab 3), a CSRF token, HTTPS, and a database table with a clear privacy notice that explains why the name and email are collected and how long they are kept. Client-side validation can be bypassed, so the server must check every field again, and the email should be stored safely and never shown to other users.
